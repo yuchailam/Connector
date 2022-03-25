@@ -1,0 +1,67 @@
+{
+  "name": "mcs",
+  "version": "v1.2.3_10032022",
+  "description": "MCS API server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec npx babel-node src/index.js | bunyan ",
+    "lint": "eslint src/*",
+    "start": "npx babel-node src/index.js | bunyan",
+    "build": "babel ./src --out-dir dist",
+    "start-pro": "node dist/index.js | ./node_modules/bunyan/bin/bunyan",
+    "rmqPublisher": "npx babel-node rmqPublisher/index.js",
+    "xmlTest": "nodemon --exec node testing/xmlParser.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuchailam/mcs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuchailam/mcs/issues"
+  },
+  "homepage": "https://github.com/yuchailam/mcs#readme",
+  "dependencies": {
+    "amqplib": "^0.5.6",
+    "axios": "^0.20.0",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "bunyan": "^1.8.12",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.1.3",
+    "fast-xml-parser": "^3.17.4",
+    "he": "^1.2.0",
+    "helmet": "^3.23.2",
+    "jsonwebtoken": "^8.5.1",
+    "log4js": "^6.3.0",
+    "log4js-syslog-appender": "^0.3.2",
+    "mssql": "^6.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/node": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "eslint": "^7.2.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "nodemon": "^2.0.4"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-transform-runtime",
+        {
+          "regenerator": true
+        }
+      ]
+    ]
+  }
+}
